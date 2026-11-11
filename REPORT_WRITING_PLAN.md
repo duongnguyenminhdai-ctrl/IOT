@@ -1,135 +1,152 @@
-# KẾ HOẠCH PHÂN CHIA VIẾT BÁO CÁO ĐỒ ÁN (HẠN NỘP: 26/11/2026)
-
+# KẾ HOẠCH CHI TIẾT VIẾT BÁO CÁO ĐỒ ÁN TỐT NGHIỆP / CUỐI KỲ
 **Đề tài:** Hệ thống IoT giám sát và phát hiện xâm nhập trước cửa nhà dựa trên phân tích hành vi bất thường  
-**Thời gian làm việc:** Từ 12/11/2026 đến 26/11/2026 (15 ngày)  
-**Hình thức:** Báo cáo đồ án học thuật (Word / PDF) theo cấu trúc chuẩn Đại học
+**Hạn nộp chính thức:** **26/11/2026** (15 ngày)  
+**Quy cách bắt buộc:** File Word | Dung lượng: **40 - 60 trang** | Cấu trúc chuẩn: **3 CHƯƠNG**
 
 ---
 
-## I. MỤC LỤC BÁO CÁO CHUẨN & PHÂN CÔNG TÁC GIẢ
-
-Quyển báo cáo dự kiến khoảng **35 - 45 trang** (chưa tính phụ lục code), được chia đều theo chuyên môn của 3 thành viên:
+## I. CẤU TRÚC BÁO CÁO CHUẨN 3 CHƯƠNG (40 - 60 TRANG)
 
 ```mermaid
-pie title Tỷ lệ phân chia khối lượng viết báo cáo
-    "Thành viên 1 (Hardware & Firmware)" : 30
-    "Thành viên 2 (Edge AI & Backend)" : 35
-    "Thành viên 3 (Tổng quan, Web & Tổng hợp)" : 35
+flowchart TD
+    Front["PHẦN ĐẦU (4-5 trang)<br>Bìa, Bìa lót, Lời mở đầu, Mục lục, Danh mục hình/bảng"]
+    C1["CHƯƠNG 1: CƠ SỞ LÝ THUYẾT (4 - 8 trang)<br>IoT, Edge AI, MQTT, YOLOv8, ByteTrack"]
+    C2["CHƯƠNG 2: MÔ HÌNH ĐỀ XUẤT HỆ THỐNG (22 - 28 trang)<br>SƠ ĐỒ TỔNG QUAN, Phần cứng ESP32, Vision Engine, Web UI"]
+    C3["CHƯƠNG 3: KẾT QUẢ THỰC NGHIỆM & THẢO LUẬN (10 - 14 trang)<br>4 Kịch bản test thực tế, Đo FPS/độ trễ, Đánh giá ưu nhược điểm"]
+    End["KẾT LUẬN & HƯỚNG PHÁT TRIỂN + TÀI LIỆU THAM KHẢO (3-4 trang)"]
+
+    Front --> C1 --> C2 --> C3 --> End
 ```
 
 ---
 
-### 📘 PHẦN 1: MỞ ĐẦU & TỔNG QUAN HỆ THỐNG
-*Phụ trách chính:* **THÀNH VIÊN 3 (Lead / Tổng hợp)** | *Số trang dự kiến:* 6 - 8 trang
+## II. BẢNG PHÂN BỔ TRANG & PHÂN CÔNG 3 THÀNH VIÊN
 
-* **LỜI CẢM ƠN, LỜI CAM ĐOAN, DANH MỤC TỪ VIẾT TẮT, DANH MỤC HÌNH VẼ & BẢNG BIỂU**
-* **CHƯƠNG 1: TỔNG QUAN ĐỀ TÀI**
-  - **1.1. Đặt vấn đề & Tính cấp thiết:** Thực trạng an ninh khu vực trước cửa nhà tại các đô thị, hạn chế của camera an ninh thông thường (chỉ ghi hình thụ động, báo động giả nhiều) và chuông cửa truyền thống.
-  - **1.2. Mục tiêu nghiên cứu:** Xây dựng hệ thống Hybrid Edge-IoT cảnh báo sớm hành vi lảng vảng bất thường (Loitering) và phát hiện mở/cạy cửa tức thời.
-  - **1.3. Đối tượng và phạm vi nghiên cứu:** Giám sát khu vực trước cửa nhà dân dụng, sử dụng Webcam USB và vi điều khiển ESP32.
-  - **1.4. Ý nghĩa khoa học và thực tiễn của đề tài.**
-* **CHƯƠNG 2: CƠ SỞ LÝ THUYẾT VỀ MẠNG TRUYỀN THÔNG IOT & GIAO THỨC MQTT**
-  - **2.1. Tổng quan giao thức MQTT:** Mô hình Publish/Subscribe, Broker Mosquitto, cấu trúc Topics.
-  - **2.2. Cơ chế đảm bảo chất lượng dịch vụ (QoS 0, 1, 2) & Retain message trong an ninh.**
-  - **2.3. So sánh giao thức MQTT với HTTP/REST:** Tại sao chọn MQTT cho kết nối vi điều khiển.
+| Mục / Chương | Nội dung chi tiết | Số trang | Phụ trách chính |
+| :--- | :--- | :---: | :---: |
+| **PHẦN ĐẦU** | - Trang bìa chính (Bìa cứng/màu)<br>- Trang bìa lót<br>- Lời cam đoan & Lời cảm ơn<br>- Lời mở đầu (Lý do chọn đề tài, tính cấp thiết)<br>- Mục lục tự động, Danh mục từ viết tắt, Danh mục hình/bảng | **4 - 5 trang** | **Thành viên 3** |
+| **CHƯƠNG 1** | **CƠ SỞ LÝ THUYẾT** (Giới hạn chuẩn: 4 - 8 trang)<br>- 1.1. Tổng quan công nghệ IoT và Điện toán biên (Edge Computing)<br>- 1.2. Giao thức truyền thông MQTT và cơ chế QoS/Retain<br>- 1.3. Tổng quan mạng nơ-ron tích chập và mô hình YOLOv8<br>- 1.4. Thuật toán theo dõi đối tượng ByteTrack | **6 - 8 trang** | **TV3** (1.1, 1.2)<br>**TV2** (1.3, 1.4) |
+| **CHƯƠNG 2** | **MÔ HÌNH ĐỀ XUẤT: HỆ THỐNG IOT GIÁM SÁT VÀ PHÁT HIỆN XÂM NHẬP TRƯỚC CỬA NHÀ DỰA TRÊN PHÂN TÍCH HÀNH VI BẤT THƯỜNG**<br>- **2.1. SƠ ĐỒ TỔNG QUAN HỆ THỐNG (System Architecture Diagram)**<br>- 2.2. Thiết kế phân hệ Phần cứng & Vi điều khiển ESP32<br>- 2.3. Thiết kế phân hệ Thị giác máy tính & Edge AI Engine<br>- 2.4. Thiết kế phân hệ Backend FastAPI & Giao tiếp MQTT<br>- 2.5. Thiết kế Giao diện Giám sát Web Dashboard React 18 | **24 - 28 trang** | **TV1** (Mục 2.2)<br>**TV2** (Mục 2.3, 2.4)<br>**TV3** (Mục 2.1, 2.5) |
+| **CHƯƠNG 3** | **KẾT QUẢ THỰC NGHIỆM VÀ THẢO LUẬN**<br>- 3.1. Môi trường thử nghiệm & Mô hình cửa vật lý<br>- 3.2. Kết quả thực nghiệm 4 kịch bản an ninh thực tế<br>- 3.3. Đo đạc các chỉ số kỹ thuật (FPS, thời gian đáp ứng, độ trễ)<br>- 3.4. Thảo luận, so sánh với hệ thống truyền thống & Phân tích lỗi | **10 - 14 trang** | **Cả 3 thành viên**<br>(TV1: Mạch/Cửa<br>TV2: AI/FPS<br>TV3: Tổng hợp/Test) |
+| **PHẦN CUỐI** | - KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN (2 trang)<br>- TÀI LIỆU THAM KHẢO (Chuẩn IEEE, tối thiểu 8-12 nguồn)<br>- PHỤ LỤC: Mã nguồn cốt lõi (Arduino .ino, Python, React) | **4 - 6 trang** | **Thành viên 3** chủ trì<br>TV1 & TV2 góp code |
+| **TỔNG CỘNG** | **Toàn bộ quyển báo cáo Word** | **48 - 60 trang** | **ĐẠT CHUẨN** |
 
 ---
 
-### 📗 PHẦN 2: THIẾT KẾ PHẦN CỨNG & EMBEDDED FIRMWARE
-*Phụ trách chính:* **THÀNH VIÊN 1 (Kỹ sư Phần cứng)** | *Số trang dự kiến:* 10 - 12 trang
+## III. CHI TIẾT NỘI DUNG TỪNG PHẦN ĐỂ VIẾT NGAY
 
-* **CHƯƠNG 3: THIẾT KẾ PHẦN CỨNG & LẬP TRÌNH FIRMWARE ESP32**
-  - **3.1. Phân tích và lựa chọn linh kiện:**
-    * Vi điều khiển ESP32 DevKit V1 (38 chân) - thông số kỹ thuật (Dual-core, WiFi/BLE).
-    * Cảm biến cửa từ MC-38 (Nguyên lý tiếp điểm Reed switch và nam châm).
-    * Cảm biến chuyển động hồng ngoại thụ động PIR HC-SR501.
-    * Màn hình hiển thị OLED 0.96 inch SSD1306 (Giao tiếp I2C).
-    * Thiết bị chấp hành: Active Buzzer 5V, Module Rơ-le 5V 1 kênh, Nút nhấn khẩn cấp, LED chỉ báo.
-  - **3.2. Sơ đồ nguyên lý & Sơ đồ nối dây (Pinout Connection):**
-    * Bảng đấu nối chân chi tiết giữa ESP32 và các linh kiện ngoại vi.
-    * Sơ đồ nguyên lý mạch (Vẽ bằng Fritzing hoặc Proteus).
-  - **3.3. Thiết kế giải thuật Firmware trên ESP32:**
-    * Cơ chế ngắt phần cứng (Hardware Interrupt `CHANGE`) trên chân GPIO 14 cho cảm biến MC-38.
-    * Lưu đồ thuật toán vòng lặp phi nghẽn (Non-blocking timer) sử dụng hàm `millis()` thay vì `delay()`.
-    * Giải thuật chống rung phím (Debounce) cho nút ấn khẩn cấp GPIO 15.
-    * Cơ chế kết nối lại tự động khi mất WiFi hoặc mất MQTT Broker.
+### 1. PHẦN ĐẦU (4 - 5 trang - TV3 phụ trách)
+- **Trang bìa & Bìa lót:** Tên Trường/Khoa/Bộ môn, Tên đề tài in hoa đậm, GVHD, Hội đồng chấm, Danh sách 3 sinh viên thực hiện (Họ tên, MSSV, Lớp), Tháng 11/2026.
+- **Lời mở đầu:** Nêu bối cảnh an ninh cửa nhà, tỷ lệ trộm cắp và điểm yếu của camera thụ động truyền thống. Đặt mục tiêu chế tạo hệ thống cảnh báo chủ động trước khi cửa bị cạy.
+- **Mục lục, Danh mục hình vẽ, Danh mục bảng biểu:** Định dạng tự động bằng tính năng *Table of Contents* của Word.
 
 ---
 
-### 📙 PHẦN 3: THỊ GIÁC MÁY TÍNH & XỬ LÝ TRÍ TUỆ NHÂN TẠO TRÊN EDGE SERVER
-*Phụ trách chính:* **THÀNH VIÊN 2 (Kỹ sư Edge AI & Vision)** | *Số trang dự kiến:* 12 - 14 trang
-
-* **CHƯƠNG 4: THUẬT TOÁN PHÁT HIỆN HÀNH VI LẢNG VẢNG BẤT THƯỜNG & BACKEND**
-  - **4.1. Kiến trúc suy luận tại biên (Edge AI Paradigm):**
-    * Lợi thế của việc xử lý AI tại biên (Local Edge) so với Cloud (bảo mật dữ liệu, độ trễ thấp, không phụ thuộc đường truyền Internet quốc tế).
-    * Giải pháp thu nhận khung hình tốc độ cao (Threaded Video Capture) bằng OpenCV DirectShow, triệt tiêu độ trễ (Video Lag).
-  - **4.2. Mô hình nhận diện người YOLOv8n (Nano):**
-    * Kiến trúc mạng YOLOv8 (Backbone, Neck, Head).
-    * Lựa chọn phiên bản nano để tối ưu hoá tốc độ suy luận (FPS) trên CPU/GPU máy tính.
-  - **4.3. Thuật toán theo dõi đa đối tượng ByteTrack:**
-    * Nguyên lý gán Track ID liên tục dựa trên ma trận khoảng cách IoU và bộ lọc Kalman Filter.
-    * Khắc phục nhược điểm mất dấu khi đối tượng bị che khuất tạm thời.
-  - **4.4. Thuật toán xác định vùng cửa (ROI) & Tính toán Dwell Time:**
-    * Thuật toán kiểm tra điểm nằm trong đa giác `cv2.pointPolygonTest`.
-    * Lựa chọn điểm neo (Anchor point) tại vị trí tiếp xúc chân người.
-    * Công thức tính thời gian lưu trú và điều kiện kích hoạt `STATE_LOITERING` (> 20 giây).
-  - **4.5. Dịch vụ phân phối cảnh báo:**
-    * Kiến trúc Backend FastAPI và cơ sở dữ liệu SQLite lưu vết sự cố.
-    * Tích hợp Telegram Bot API tự động đóng gói ảnh snapshot có đóng dấu timestamp và bounding box gửi về smartphone người dùng.
+### 2. CHƯƠNG 1: CƠ SỞ LÝ THUYẾT (6 - 8 trang)
+*(Bám sát yêu cầu từ 4 đến 8 trang, tập trung cô đọng các khái niệm nền tảng)*
+- **1.1. Công nghệ IoT và Mô hình Hybrid Edge Computing (1.5 trang - TV3):**
+  - Khái niệm mạng vạn vật IoT trong Smart Home.
+  - Phân tích sự chuyển dịch từ Cloud AI sang Edge AI: Khử độ trễ đường truyền, bảo vệ tính riêng tư hình ảnh gia đình, đảm bảo khả năng sống sót khi mất mạng Internet.
+- **1.2. Giao thức truyền thông nhẹ MQTT (1.5 trang - TV3):**
+  - Cơ chế Client/Server và Pub/Sub qua Broker trung tâm.
+  - Cấu trúc cây Topic, ý nghĩa các cấp độ dịch vụ QoS (tập trung phân tích QoS 1) và cơ chế Retained Messages.
+- **1.3. Mô hình thị giác máy tính YOLOv8 (2 trang - TV2):**
+  - Cấu trúc mạng phát hiện đối tượng thời gian thực YOLOv8 (Backbone, PAN-FPN Neck, Anchor-free Head).
+  - So sánh các phiên bản (n, s, m, l, x) & lý do chọn phiên bản Nano (YOLOv8n) cho bài toán Edge AI.
+- **1.4. Thuật toán theo dõi đối tượng ByteTrack (1.5 trang - TV2):**
+  - Nguyên lý gán Track ID liên tục dựa trên bộ lọc Kalman Filter và thuật toán Hungarian Matching, ưu điểm giữ dấu đối tượng khi bị che khuất một phần.
 
 ---
 
-### 📕 PHẦN 4: GIAO DIỆN ĐIỀU KHIỂN, KẾT QUẢ THỰC NGHIỆM & KẾT LUẬN
-*Phụ trách chính:* **THÀNH VIÊN 3 (cùng TV1 & TV2 đóng góp số liệu)** | *Số trang dự kiến:* 8 - 10 trang
+### 3. CHƯƠNG 2: MÔ HÌNH ĐỀ XUẤT HỆ THỐNG IOT GIÁM SÁT VÀ PHÁT HIỆN XÂM NHẬP TRƯỚC CỬA NHÀ DỰA TRÊN PHÂN TÍCH HÀNH VI BẤT THƯỜNG (24 - 28 trang - CHƯƠNG TRỌNG TÂM)
 
-* **CHƯƠNG 5: HIỆN THỰC HÓA GIAO DIỆN & KẾT QUẢ THỰC NGHIỆM**
-  - **5.1. Thiết kế Giao diện Web Dashboard Giám Sát (React 18 + TailwindCSS):**
-    * Luồng hiển thị video trực tiếp (MJPEG Stream).
-    * Widget hiển thị trạng thái cảm biến (Cửa đóng/mở, chuyển động PIR, trạng thái bảo vệ ARMED).
-    * Bảng điều khiển tác vụ nhanh (Arm/Disarm, Mute còi hú).
-    * Công cụ hiệu chỉnh vùng cửa trực quan (Interactive ROI Calibration).
-    * Bảng nhật ký sự cố (Incident Logs) và modal xem ảnh bằng chứng.
-  - **5.2. Kết quả thử nghiệm thực tế theo 4 kịch bản:**
-    * Kịch bản 1: Người lảng vảng trước cửa $> 20$ giây.
-    * Kịch bản 2: Cạy mở cửa trái phép khi đang kích hoạt báo động.
-    * Kịch bản 3: Bấm nút báo động khẩn cấp tại chỗ.
-    * Kịch bản 4: Tắt báo động từ xa và cấu hình lại ranh giới ROI.
-  - **5.3. Đánh giá hiệu năng hệ thống (Đo đạc thực nghiệm):**
-    * Tốc độ xử lý khung hình (FPS) trung bình.
-    * Độ trễ phát hiện và thời gian còi kêu khi mở cửa (mili-giây).
-    * Thời gian gửi cảnh báo và ảnh chụp qua Telegram Bot (giây).
-* **CHƯƠNG 6: KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN**
-  - **6.1. Các kết quả đạt được của đề tài.**
-  - **6.2. Hạn chế còn tồn tại.**
-  - **6.3. Hướng phát triển trong tương lai** (Nhận diện khuôn mặt người quen/lạ, tích hợp nguồn pin dự phòng UPS, mở rộng cụm cảm biến qua Zigbee/Matter).
-* **TÀI LIỆU THAM KHẢO & PHỤ LỤC MÃ NGUỒN CỐT LÕI**
+- **2.1. SƠ ĐỒ TỔNG QUAN HỆ THỐNG (BẮT BUỘC) (2 trang - TV3):**
+  - Vẽ **Sơ đồ khối tổng quan kiến trúc hệ thống (System Architecture Block Diagram)** thể hiện rõ 3 tầng: Tầng thiết bị ngoại vi (ESP32 + Cảm biến/Actuator) &larr;&rarr; Tầng truyền thông (Mosquitto MQTT LAN) &larr;&rarr; Tầng xử lý Edge AI & Dashboard (FastAPI + YOLOv8 + React UI + Telegram Cloud).
+  - Luồng truyền nhận dữ liệu giữa các khối khi có sự kiện an ninh.
 
----
+- **2.2. Phân hệ Phần cứng & Vi điều khiển ESP32 (8 trang - TV1):**
+  - Chi tiết thông số vi điều khiển ESP32 DevKit V1 (38 chân).
+  - Nguyên lý cảm biến cửa từ MC-38 (tiếp điểm từ đóng mở), cảm biến chuyển động PIR HC-SR501, OLED 0.96" SSD1306 (giao tiếp I2C), Active Buzzer 5V, Relay 5V, Nút ấn khẩn cấp GPIO 15.
+  - Sơ đồ nguyên lý mạch hoàn chỉnh (vẽ bằng Fritzing / Proteus) và bảng chân Pinout chi tiết.
+  - Thuật toán Firmware:
+    * Cơ chế ngắt phần cứng (`attachInterrupt CHANGE` trên GPIO 14) đảm bảo ghi nhận mở cửa tức thì (< 1ms).
+    * Thiết kế máy trạng thái và vòng lặp Non-blocking với hàm `millis()`.
+    * Giải thuật chống rung phím (Debounce) cho nút khẩn cấp.
 
-## II. TIMELINE CHI TIẾT THEO NGÀY (12/11 &rarr; 26/11)
+- **2.3. Phân hệ Thị giác máy tính & Phân tích hành vi lảng vảng (8 trang - TV2):**
+  - Cơ chế thu nhận video không trễ (Zero-latency Threaded Video Grabber) bằng OpenCV DirectShow buffer = 1.
+  - Quy trình xử lý khung hình: Frame &rarr; YOLOv8n (chỉ lọc class 0: person) &rarr; ByteTrack gán ID.
+  - Thuật toán đa giác ranh giới cửa (ROI Polygon) và thuật toán hình học `cv2.pointPolygonTest`.
+  - Công thức tính Dwell time theo toạ độ chân người:
+    $$\text{Anchor Point} = \left(\frac{x_1 + x_2}{2}, y_2\right)$$
+  - Điều kiện kích hoạt trạng thái lảng vảng `STATE_LOITERING` ($t \ge 20\text{s}$) và bộ đệm thời gian chống spam cảnh báo (Cooldown 30s).
 
-| Giai đoạn | Ngày | Nhiệm vụ cụ thể | Trách nhiệm |
-| :--- | :---: | :--- | :--- |
-| **Giai đoạn 1:**<br>Viết nháp nội dung | **12/11 - 15/11** | - TV1: Viết xong bản nháp Chương 3 (Linh kiện, sơ đồ nguyên lý, giải thuật ngắt).<br>- TV2: Viết xong bản nháp Chương 4 (YOLOv8n, ByteTrack, công thức ROI, Telegram).<br>- TV3: Viết Chương 1, Chương 2 và tạo khung template Word chuẩn (font, margin, header/footer). | Mỗi thành viên viết phần của mình |
-| **Giai đoạn 2:**<br>Chụp ảnh & Thu thập số liệu | **16/11 - 19/11** | - TV1: Chụp ảnh mô hình phần cứng thật sắc nét, xuất sơ đồ Fritzing đưa vào báo cáo.<br>- TV2: Chụp ảnh phát hiện YOLOv8, ảnh snapshot Telegram, bảng đo FPS.<br>- TV3: Chụp ảnh toàn bộ màn hình Dashboard, bảng Incident logs, đo độ trễ mạng LAN. | Cả nhóm phối hợp |
-| **Giai đoạn 3:**<br>Ghép nối & Viết kết quả | **20/11 - 22/11** | - Ghép toàn bộ nội dung của TV1, TV2, TV3 vào 1 file Word duy nhất.<br>- Cùng hoàn thiện Chương 5 (Kết quả thực nghiệm) và Chương 6 (Kết luận).<br>- Đánh số thứ tự Hình, Bảng, Phương trình theo từng chương (VD: Hình 3.1, Bảng 4.2). | TV3 chủ trì ghép, TV1 & TV2 hỗ trợ |
-| **Giai đoạn 4:**<br>Review chéo & Sửa lỗi | **23/11 - 24/11** | - TV1 đọc dò phần của TV2, TV2 đọc dò phần của TV1 để phát hiện lỗi hành văn, lỗi chính tả.<br>- Kiểm tra lại toàn bộ Danh mục từ viết tắt và Tài liệu tham khảo theo chuẩn IEEE.<br>- Tinh chỉnh dàn trang (không để bảng bị gãy đôi, không để hình trôi xuống trang thừa). | Cả 3 thành viên |
-| **Giai đoạn 5:**<br>Đóng gói & Nộp báo cáo | **25/11** | - Xuất file PDF hoàn chỉnh, kiểm tra lại hiển thị trên máy khác.<br>- In ấn, đóng bìa cứng / bìa bóng kính (nếu trường yêu cầu nộp bản giấy).<br>- Cùng nạp file mềm lên hệ thống LMS/Email của trường. | TV3 nộp, TV1 & TV2 xác nhận |
-| 🎯 **DEADLINE** | **26/11** | **CHÍNH THỨC NỘP BÁO CÁO ĐỒ ÁN CHO GIẢNG VIÊN HƯỚNG DẪN / BỘ MÔN.** | Toàn nhóm |
+- **2.4. Phân hệ Backend & Dịch vụ Cảnh báo (4 trang - TV2):**
+  - Kiến trúc FastAPI Backend, xử lý luồng Streaming MJPEG.
+  - Cơ sở dữ liệu SQLite: Thiết kế lược đồ bảng `Incident` (lưu vết sự cố) và bảng `DeviceState`.
+  - Tích hợp Telegram Bot API: Đóng gói ảnh bằng chứng snapshot có vẽ khung viền bbox và timestamp gửi về smartphone.
+
+- **2.5. Phân hệ Giao diện Giám sát Web Dashboard (4 trang - TV3):**
+  - Kiến trúc Dashboard React 18 + Vite + TailwindCSS.
+  - Thiết kế các thành phần giao diện: Live feed video HUD, widget trạng thái cảm biến (Cửa, PIR, Alarm), các nút điều khiển nhanh (Arm/Disarm, Mute còi).
+  - Thiết kế công cụ hiệu chỉnh vùng cửa trực quan (Interactive ROI Calibration Tool) cho phép click 4 điểm đổi toạ độ ranh giới trực tiếp trên Web.
 
 ---
 
-## III. QUY CHUẨN ĐỊNH DẠNG BÁO CÁO (FORMATTING GUIDELINE)
+### 4. CHƯƠNG 3: KẾT QUẢ THỰC NGHIỆM VÀ THẢO LUẬN (10 - 14 trang)
 
-Để quyển báo cáo chuyên nghiệp và được điểm hình thức cao:
-1. **Font chữ & Kích thước:**
-   - Font: `Times New Roman` (hoặc font trường quy định).
-   - Cỡ chữ: Thân bài `13pt`, Tiêu đề cấp 1 `16pt Bold`, Cấp 2 `14pt Bold`, Cấp 3 `13pt Bold Italic`.
-   - Giãn dòng (Line spacing): `1.3 - 1.5 lines`. Before/After: `3pt / 3pt`.
-2. **Căn lề trang giấy (Page Margins):**
-   - Lề trên: `2.0 cm` | Lề dưới: `2.0 cm`
-   - Lề trái (để đóng gáy): `3.0 cm` | Lề phải: `2.0 cm`
-3. **Quy tắc hình vẽ & bảng biểu:**
-   - Tất cả hình vẽ phải có chú thích đặt **bên dưới hình** (Ví dụ: *Hình 3.2: Sơ đồ nối chân cảm biến MC-38 với ESP32*).
-   - Tất cả bảng biểu phải có chú thích đặt **bên trên bảng** (Ví dụ: *Bảng 4.1: So sánh hiệu năng các phiên bản YOLOv8*).
-   - Mọi hình và bảng đều phải được trích dẫn (refer) trong đoạn văn bản trước đó.
+- **3.1. Mô hình thử nghiệm thực tế (2 trang - TV1):**
+  - Ảnh chụp mô hình cánh cửa vật lý có gắn cảm biến MC-38, PIR, OLED, còi báo và bo mạch ESP32.
+  - Vị trí bố trí camera USB quan sát trước cửa.
+- **3.2. Kết quả thực nghiệm 4 kịch bản an ninh (6 trang - Cả 3 TV):**
+  - *Kịch bản 1:* Đối tượng đứng lảng vảng trước cửa $> 20$ giây &rarr; Chụp ảnh thực tế camera đổi viền đỏ, ảnh cảnh báo Telegram nhận được trên điện thoại, dòng nhật ký trên Web.
+  - *Kịch bản 2:* Đột nhập cạy cửa &rarr; Chụp ảnh trạng thái cửa đổi màu đỏ, còi hú ngay lập tức.
+  - *Kịch bản 3:* Báo động khẩn cấp tại chỗ qua nút bấm GPIO 15.
+  - *Kịch bản 4:* Hiệu chỉnh lại vùng ranh giới ROI trực tiếp trên Web Dashboard thành công.
+- **3.3. Đo đạc & Đánh giá các chỉ số kỹ thuật (2 - 3 trang - TV2 & TV3):**
+  - Bảng đo FPS thực tế của webcam khi chạy YOLOv8n trên các độ phân giải (720p, 1080p).
+  - Bảng đo thời gian trễ phản hồi: Độ trễ ngắt cửa (< 1ms), độ trễ gửi nhận MQTT (< 20ms qua LAN), thời gian Telegram gửi ảnh (1.2 - 2.5s).
+- **3.4. Thảo luận và Đánh giá (2 trang - TV3):**
+  - So sánh với các hệ thống camera và chuông cửa thương mại hiện nay.
+  - Phân tích các trường hợp giới hạn (Ánh sáng yếu ban đêm, người bị che khuất).
+
+---
+
+### 5. PHẦN CUỐI (4 - 5 trang - TV3 chủ trì)
+- **KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN (2 trang):**
+  - Tóm tắt những kết quả đã hiện thực hoá thành công của đề tài.
+  - Đề xuất các hướng nâng cấp: Nhận diện khuôn mặt người quen/lạ, mở rộng kết nối không dây Zigbee, tích hợp pin sạc dự phòng khi mất điện lưới.
+- **TÀI LIỆU THAM KHẢO:** Liệt kê 10 - 15 tài liệu tham khảo chuẩn IEEE (sách, bài báo khoa học về YOLOv8, MQTT, ESP32, tài liệu Ultralytics).
+- **PHỤ LỤC:** Trích dẫn các đoạn mã nguồn quan trọng (`loitering_engine.py`, `esp32_security_node.ino`).
+
+---
+
+## IV. LỊCH TRÌNH 15 NGÀY HOÀN THIỆN ĐỂ NỘP NGÀY 26/11
+
+```mermaid
+gantt
+    title TIẾN ĐỘ 15 NGÀY SOẠN BÁO CÁO (HẠN NỘP 26/11/2026)
+    dateFormat  YYYY-MM-DD
+    section Giai đoạn 1 (Viết nháp)
+    TV1 viết mục 2.2                :done, 2026-11-12, 4d
+    TV2 viết mục 1.3, 1.4, 2.3, 2.4 :done, 2026-11-12, 4d
+    TV3 viết Mở đầu, C1, mục 2.1, 2.5:done, 2026-11-12, 4d
+    section Giai đoạn 2 (Chụp ảnh & Thử nghiệm)
+    Chụp ảnh mô hình & Chạy 4 kịch bản:active, 2026-11-16, 4d
+    Lấy số liệu FPS, độ trễ         :2026-11-18, 2d
+    section Giai đoạn 3 (Ghép file Word)
+    Ghép toàn bộ 3 chương vào Word 45-55 trang: 2026-11-20, 3d
+    Viết Chương 3 & Kết luận        :2026-11-21, 2d
+    section Giai đoạn 4 (Review & Format)
+    Soát lỗi chính tả & Format IEEE :2026-11-23, 2d
+    Xuất PDF & Đóng bìa             :2026-11-25, 1d
+    section Giai đoạn 5 (Nộp bài)
+    CHÍNH THỨC NỘP BÁO CÁO 26/11   :milestone, 2026-11-26, 0d
+```
+
+- **Từ 12/11 đến 15/11:** Mỗi bạn mở file Word riêng, viết toàn bộ phần lý thuyết và thiết kế hệ thống theo đề cương trên.
+- **Từ 16/11 đến 19/11:** Cả nhóm lắp mô hình, cắm camera, chạy 4 kịch bản và chụp các ảnh thực tế rõ nét chèn vào bài.
+- **Từ 20/11 đến 22/11:** Thành viên 3 gom bài của cả nhóm vào 1 file Word duy nhất, hoàn thiện Chương 3 và Kết luận.
+- **Từ 23/11 đến 24/11:** Rà soát chéo, sửa định dạng lề, đánh số trang, tạo mục lục tự động.
+- **Ngày 25/11:** Xuất file PDF, in ấn đóng quyển (nếu cần).
+- 🎯 **Ngày 26/11:** **Chính thức nộp quyển báo cáo cho Giảng viên / Bộ môn.**
